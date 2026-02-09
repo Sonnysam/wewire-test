@@ -4,7 +4,14 @@ A minimal wallet-style app with 5 screens: Welcome/Login, Home, Wallets list, Ad
 
 ## Setup
 
-1. **Install dependencies** (use one of):
+1. **Clone the project** and go into the folder:
+
+   ```bash
+   git clone <repository-url>
+   cd wewire-app
+   ```
+
+2. **Install dependencies** (use one of):
 
    ```bash
    npm install
@@ -12,15 +19,27 @@ A minimal wallet-style app with 5 screens: Welcome/Login, Home, Wallets list, Ad
 
    or `bun install` / `yarn install`.
 
-2. **Start the app**:
+3. **Check and fix the Expo environment** (recommended):
+
+   ```bash
+   npx expo-doctor
+   ```
+
+   Or to validate and align package versions with the Expo SDK:
+
+   ```bash
+   npx expo install --check
+   ```
+
+   Fix any reported issues before starting the app.
+
+4. **Start the app**:
 
    ```bash
    npx expo start
    ```
 
-   Then open in iOS simulator, Android emulator, or scan the QR code with Expo Go.
-
-(Optional: note how long you spent on the test in this README or in your submission.)
+   Then open in iOS simulator, Android emulator, or scan the QR code with the Expo Go app.
 
 ## Folder structure
 
