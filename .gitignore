@@ -12,6 +12,9 @@ expo-env.d.ts
 # vscode
 .vscode/
 
+# project scripts (local / tooling)
+scripts/
+
 # Native
 .kotlin/
 *.orig.*
