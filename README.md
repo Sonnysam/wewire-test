@@ -4,13 +4,15 @@ A minimal wallet-style app with 5 screens: Welcome/Login, Home, Wallets list, Ad
 
 ## Setup
 
-1. Install dependencies:
+1. **Install dependencies** (use one of):
 
    ```bash
-   bun or npm or yarn install
+   npm install
    ```
 
-2. Start the app:
+   or `bun install` / `yarn install`.
+
+2. **Start the app**:
 
    ```bash
    npx expo start
@@ -20,6 +22,34 @@ A minimal wallet-style app with 5 screens: Welcome/Login, Home, Wallets list, Ad
 
 (Optional: note how long you spent on the test in this README or in your submission.)
 
+## Folder structure
+
+```
+wewire-app/
+├── app/                      # Expo Router screens & layout
+│   ├── _layout.tsx           # Root stack (auth vs home)
+│   ├── (auth)/
+│   │   └── index.tsx         # Welcome / Login
+│   └── (home)/
+│       ├── _layout.tsx       # Home stack
+│       ├── home.tsx          # Home (balance + wallet cards)
+│       ├── wallets.tsx       # Wallets list + search
+│       ├── add-wallet.tsx    # Add wallet form
+│       └── wallet/
+│           └── [id].tsx      # Wallet detail
+├── components/
+│   ├── common/               # MainContainer
+│   ├── home/                 # BalanceCard, WalletCard, WalletsSection, etc.
+│   └── ui/                   # Button, Input, Fab
+├── constants/                # colors.ts
+├── data/                     # Mock wallets, transactions, currencies
+├── interfaces/               # TypeScript types
+│   ├── store/                # WalletsState, AuthState
+│   └── ...                   # Wallet, Transaction, forms, etc.
+├── store/                    # Zustand: auth.ts, wallets.ts
+└── utils/                    # validations, format, wallets helpers
+```
+
 ## Screens
 
 - **Welcome / Login** – Email and password inputs; Login navigates to Home (no API).
@@ -27,16 +57,6 @@ A minimal wallet-style app with 5 screens: Welcome/Login, Home, Wallets list, Ad
 - **Wallets** – Full list with search by name/currency; tap a wallet to open its detail.
 - **Add Wallet** – Form: name (required, min 2 chars) and currency (USD/EUR/GBP). Validates and adds a new wallet (balance 0.00).
 - **Wallet Detail** – Name, currency, balance and recent transactions (by `walletId`). Shows “No transactions yet” when empty.
-
-## Project structure
-
-- `app/` – Expo Router screens and stack layout.
-- `components/` – Shared UI (Button, Input, Fab, home components).
-- `constants/` – Colors/theme.
-- `data/` – Mock wallets and transactions.
-- `interfaces/` – TypeScript types (Wallet, Transaction, forms, etc.).
-- `store/` – Zustand store for wallets (and auth).
-- `utils/` – Validations, date formatting, wallet helpers.
 
 ## Tech
 
