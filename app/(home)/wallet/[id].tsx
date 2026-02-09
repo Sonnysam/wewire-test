@@ -1,6 +1,7 @@
 import MainContainer from '@/components/common/MainContainer';
 import TransactionRow from '@/components/home/TransactionRow';
 import WalletDetailHeader from '@/components/home/WalletDetailHeader';
+import BackButton from '@/components/ui/BackButton';
 import { colors } from '@/constants/colors';
 import { MOCK_TRANSACTIONS } from '@/data/transactions';
 import { useWallets } from '@/store/wallets';
@@ -22,6 +23,9 @@ export default function WalletDetailScreen() {
   if (!wallet) {
     return (
       <MainContainer contentContainerStyle={styles.content}>
+        <View style={styles.headerRow}>
+          <BackButton />
+        </View>
         <Text style={styles.notFound}>Wallet not found</Text>
       </MainContainer>
     );
@@ -29,6 +33,9 @@ export default function WalletDetailScreen() {
 
   return (
     <MainContainer contentContainerStyle={styles.content}>
+      <View style={styles.headerRow}>
+        <BackButton />
+      </View>
       <WalletDetailHeader wallet={wallet} />
 
       <Text style={styles.sectionTitle}>Recent transactions</Text>
@@ -50,6 +57,10 @@ export default function WalletDetailScreen() {
 }
 
 const styles = StyleSheet.create({
+  headerRow: {
+    flexDirection: 'row',
+    marginBottom: 16,
+  },
   content: {
     paddingTop: Platform.OS === 'ios' ? 15 : 10,
     paddingBottom: 40,

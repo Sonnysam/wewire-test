@@ -1,4 +1,5 @@
 import MainContainer from '@/components/common/MainContainer';
+import BackButton from '@/components/ui/BackButton';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/input';
 import { colors } from '@/constants/colors';
@@ -30,6 +31,9 @@ export default function AddWalletScreen() {
 
   return (
     <MainContainer style={styles.sheet} contentContainerStyle={styles.content}>
+      <View style={styles.headerRow}>
+        <BackButton />
+      </View>
       <Input
         label="Wallet name"
         placeholder="e.g. Savings"
@@ -64,6 +68,10 @@ export default function AddWalletScreen() {
 const styles = StyleSheet.create({
   sheet: {
     paddingHorizontal: 0,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    marginBottom: 16,
   },
   content: {
     flexGrow: 0,

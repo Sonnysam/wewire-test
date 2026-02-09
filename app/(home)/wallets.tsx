@@ -1,5 +1,6 @@
 import MainContainer from '@/components/common/MainContainer';
 import WalletCard from '@/components/home/WalletCard';
+import BackButton from '@/components/ui/BackButton';
 import { colors } from '@/constants/colors';
 import { useWallets } from '@/store/wallets';
 import { filterWalletsBySearch } from '@/utils/wallets';
@@ -16,6 +17,9 @@ export default function WalletsScreen() {
 
   return (
     <MainContainer contentContainerStyle={styles.content}>
+      <View style={styles.headerRow}>
+        <BackButton />
+      </View>
       <View style={styles.searchWrap}>
         <Ionicons name="search-outline" size={20} color={colors.grey} style={styles.searchIcon} />
         <TextInput
@@ -56,6 +60,10 @@ const styles = StyleSheet.create({
   content: {
     paddingTop: Platform.OS === 'ios' ? 15 : 10,
     paddingBottom: 40,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    marginBottom: 16,
   },
   searchWrap: {
     flexDirection: 'row',
